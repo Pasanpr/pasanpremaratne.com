@@ -5,8 +5,8 @@
   "author": "Pasan Premaratne <pasan@premaratne.me>",
   "dependencies": {
     "fs": "0.0.1-security",
-    "gatsby": "^1.9.127",
-    "gatsby-link": "^1.6.30",
+    "gatsby": "^1.9.200",
+    "gatsby-link": "^1.6.37",
     "gatsby-paginate": "^1.0.6",
     "gatsby-plugin-catch-links": "^1.0.13",
     "gatsby-plugin-react-helmet": "^1.0.8",

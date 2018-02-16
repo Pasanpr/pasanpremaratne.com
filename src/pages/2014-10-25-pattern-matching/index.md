@@ -49,7 +49,6 @@ func updateTimerLabel() -> Void {
     default:
         return contractionTimerLabel.text = "\(min):\(sec)"
     }
-
 }
 
 private func timeElapsedInSecondsAndMinutes(#interval: NSTimeInterval) ->  (seconds: Int, minutes: Int){
