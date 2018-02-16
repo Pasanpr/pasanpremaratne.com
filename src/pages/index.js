@@ -5,13 +5,53 @@ import Link from '../components/Link';
 
 import '../css/index.css';
 
-const NavLink = props => {
-  if (!props.test) {
-    return <li><Link to={props.url}>{props.text}</Link></li>;
+const PostBlurb = props => {
+  const post = props.post;
+  if (post.frontmatter.path == "/") {
+    return <ExternalLinkBlurb post={post} />;
   } else {
-    return <li><span className="pagination-disabled">{props.text}</span></li>;
-  }
+    return <DefaultBlurb post={post} />;
+  };
 };
+
+const DefaultBlurb = props => {
+  const post = props.post;
+  return (
+    <div className="blog-post-preview" key={post.id}>
+      <h1 className="title" style={{ fontFamily: `ff-ernestine-pro, serif` }}>
+        <GatsbyLink className="post-title-link" to={post.frontmatter.path} style={{ color: `#20242C`, textDecoration: `none` }}>
+          {post.frontmatter.title}
+        </GatsbyLink>
+      </h1>
+      <h2 className="date" style={{ fontFamily: `museo-sans, sans-serif` }}>
+        {post.frontmatter.date}
+      </h2>
+      <p className="text" style={{ fontFamily: `museo-sans, sans-serif`, lineHeight: `1.75rem` }}>
+        {post.excerpt}
+      </p>
+      <GatsbyLink className="post-link" to={post.frontmatter.path} style={{ fontFamily: `museo-sans, sans-serif`, color: `#C96DD8`, textDecoration: `none` }}>
+        Continue Reading →
+      </GatsbyLink>
+    </div>
+  );
+};
+
+const ExternalLinkBlurb = props => {
+  const post = props.post;
+  return (
+    <div className="blog-post-preview" key={post.id}>
+      <h1 className="title" style={{ fontFamily: `ff-ernestine-pro, serif` }}>
+        <a className="post-title-link" href={post.frontmatter.link} style={{ color: `#20242C`, textDecoration: `none` }}>
+          {post.frontmatter.title} ∞
+        </a>
+      </h1>
+      <h2 className="date" style={{ fontFamily: `museo-sans, sans-serif` }}>
+        {post.frontmatter.date}
+      </h2>
+    </div>
+  );
+};
+
 
 export default function Index({ data }) {
   const { edges: posts } = data.allMarkdownRemark;
@@ -20,40 +60,7 @@ export default function Index({ data }) {
       {posts
         .filter(post => post.node.frontmatter.title.length > 0)
         .map(({ node: post }) => {
-          if (typeof post.frontmatter.path == "string") {
-            return (
-              <div className="blog-post-preview" key={post.id}>
-                <h1 className="title" style={{ fontFamily: `ff-ernestine-pro, serif` }}>
-                  <GatsbyLink className="post-title-link" to={post.frontmatter.path} style={{ color: `#20242C`, textDecoration: `none` }}>
-                    {post.frontmatter.title}
-                  </GatsbyLink>
-                </h1>
-                <h2 className="date" style={{ fontFamily: `museo-sans, sans-serif` }}>
-                  {post.frontmatter.date}
-                </h2>
-                <p className="text" style={{ fontFamily: `museo-sans, sans-serif`, lineHeight: `1.75rem` }}>
-                  {post.excerpt}
-                </p>
-                <GatsbyLink className="post-link" to={post.frontmatter.path} style={{ fontFamily: `museo-sans, sans-serif`, color: `#C96DD8`, textDecoration: `none` }}>
-                  Continue Reading →
-                </GatsbyLink>
-              </div>
-            );
-          } else {
-            console.log(post.frontmatter.link);
-            return (
-              <div className="blog-post-preview" key={post.id}>
-                <h1 className="title" style={{ fontFamily: `ff-ernestine-pro, serif` }}>
-                  <a className="post-title-link" href={post.frontmatter.link} style={{ color: `#20242C`, textDecoration: `none` }}>
-                    {post.frontmatter.title} ∞
-                  </a>
-                </h1>
-                <h2 className="date" style={{ fontFamily: `museo-sans, sans-serif` }}>
-                  {post.frontmatter.date}
-                </h2>
-              </div>
-            );
-          };
+          return <PostBlurb post={post} />;
         })}
     </div>
   );
