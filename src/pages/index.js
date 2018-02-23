@@ -52,7 +52,6 @@ const ExternalLinkBlurb = props => {
   );
 };
 
-
 export default function Index({ data }) {
   const { edges: posts } = data.allMarkdownRemark;
   return (

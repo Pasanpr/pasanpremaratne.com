@@ -17,7 +17,7 @@ Since QC apparently has enough functionality to suit the needs of a much more co
 
 Quartz Composer is a node based visual programming language thats part of the Xcode development environment and is used for processing and rendering graphical data. In the Quartz Editor, a user creates a *composition* by connecting a number of *patches* to one another with *noodles*.
 
-![image](/assets/images/QuartzComposition.png)
+![image](https://cl.ly/0B202b3e1R0z/QuartzComposition.png)
 
 QC's original purpose was for visualization tasks so basic patches include things like color mixer, gradient and dissolve transitions. Using these patches, the end result of the composition and any changes made are immediately visible in a *Viewer* making it a great tool for quickly creating prototypes.
 
@@ -25,7 +25,7 @@ Origami extends QC's functionality by including a number of new patches that mak
 
 Let's work through an example so it's easier to understand how QC + Origami shines.  For the purpose of this tutorial we're going to implement a radial menu similar to [Path's](https://path.com) that spins out with menu options when the user taps the button.
 
-![image](/assets/images/PathRadialMenu.gif)
+![image](https://cl.ly/3s1q2i3H1X1M/PathRadialMenu.gif)
 
 To follow along with this tutorial, you can [download](https://www.dropbox.com/sh/6rql4et5o1qnyqi/PfkGoLnImu) the assets I use.
 
@@ -43,7 +43,7 @@ QC has a few different templates for different types of visualization tasks. We'
 
 Your window should look like this:
 
-![image](/assets/images/BasicComposition.png)
+![image](https://cl.ly/2L402j1H1A02/BasicComposition.png)
 
 The blue box that you see is a Quartz Composer *patch*, specifically a Clear patch. According to the documentation:
 
@@ -55,13 +55,13 @@ Quartz Composer continuously renders the contents of the composition in a Viewer
 
 With its default patches, we would have to do all sorts of crazy stuff just to get an iPhone set up in the viewer but Origami does this out of the box. If you don't already have the Patch Library dialog open, click the icon in the top left corner of the window (the first icon in the toolbar). Search for the **Phone** patch and drag it into the composition window. You can see that this immediately renders an iPhone in the Viewer window.
 
-![image](/assets/images/CompositionViewer.png)
+![image](https://cl.ly/1O3H2L3M2D2i/CompositionViewer.png)
 
  Next we need to set the dimensions of our iPhone screen. This ensures that any artwork that we export will fit perfectly in the viewer. Search for and drag in first the **Phone Dimensions** patch, followed by the **Render in Image** patch.  The Phone Dimensions patch is an Origami patch that outputs the pixel width and height of the phone that we're designing for. The default is set to iPhone but you can change that. Select the patch and click on *Patch Inspector* in the toolbar. This is how you access the parameters of a patch. The Phone Dimensions patch has only one parameter - the type of phone you will be using. Leave iPhone selected.
 
  The Render in Patch on the other hand is a patch that renders all of its subpatches into an image. We need to specify that the image rendered matches the phone dimensions and that it outputs this image to the iPhone in our viewer. To do this click and drag from the *Pixels Wide* output port of the Phone Dimensions patch to the *Pixels Wide* input port of the Render in Image patch. It should look like this:
 
-![image](/assets/images/PixelsWide.png)
+![image](https://cl.ly/3B1923040I09/PixelsWide.png)
 
  This is essentially how Quartz Composer works as a visual programming language. You connect from the output port of one patch to the input port of another and it evaluates based on your directions. This resulting composition is rendered to the viewer.
 
@@ -80,7 +80,7 @@ Dragging the image in creates an Image patch and an associated layer. This layer
 When you drag the images into the composition, you will notice that they are positioned exactly in the center of the view. The phone dimensions patch we  added set the dimensions of the rendered image to match that of an iPhone (1136 x 640 pixels) so you would expect the image we just added to be positioned right in the center at (320,568), instead the images are at (0,0).
 This is because QC has a different coordinate system (as compared to iOS or OS X). QC uses a three-dimensional coordinate system with the origin at the center like below:
 
-![image](/assets/images/QCCoordinates.png)
+![image](https://cl.ly/1N3V2p3u3q09/QCCoordinates.png)
 
 Given this coordinate system, the height of the rendered image goes from +580 to -580, while the width goes from +320 to -320.  With this in mind, we can move our images to their desired positions. To set the coordinates, click on a layer, and click on Patch Inspector in the toolbar. We will be setting the X and Y positions of each layer.
 
@@ -91,7 +91,7 @@ Given this coordinate system, the height of the rendered image goes from +580 to
 
 The final position should look like this:
 
-![image](/assets/images/FinalLayout.png)
+![image](https://cl.ly/3g372G420f1o/FinalLayout.png)
 
 These positions are the final positions of our radial menu. For the purposes of our animation, the lettered button images are all going to sit underneath the Add button layer and animate to these final positions.
 
@@ -165,7 +165,7 @@ You should have a spinning, fanning out radial menu just like Path's (sort of). 
 
 There's still a few improvements we can make, but you should be able to do that on your own.
 
-![image](/assets/images/QCRadialMenu.gif)
+![image](https://cl.ly/1g3o0U0K453L/QCRadialMenu.gif)
 
 ##Conclusions
 
@@ -175,11 +175,11 @@ Hopefully this tutorial should give you a quick intro into the different kinds o
 
 The only downside that I see right now to using Quartz Composer is that if you're protoyping something complex, your composition can get unweildy and convoluted fairly quickly. In just creating a radial menu with three buttons we have over 20 patches in our composition. This can be mitigated to some effect by rearranging and using QC's notes feature. I've grouped all the patches related to button A and placed a note underneath it to indicate what that grouping achieves. Notes can be created by right clicking anywhere in the composition window.
 
-![image](/assets/images/ButtonAOrganization.png)
+![image](https://cl.ly/3j2s2Y1f0i3C/ButtonAOrganization.png)
 
 After a bit of rearranging, my final composition window looks something like this:
 
-![image](/assets/images/CompositionWindow.png)
+![image](https://cl.ly/0l3x283q1N2a/CompositionWindow.png)
 
 As you can see, anything more complex and things can get messy real quick.
 
