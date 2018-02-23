@@ -8,8 +8,7 @@ Teaching yourself seems to be in vogue as of late - partly due to the
 rising costs of education, but more due to the ease of access to quality
 educational resources. Blog posts proclaiming I taught myself to code in
 X days, months, or years always float to the top and are lauded. There's
-absolutely nothing wrong with this. Teaching one's self is a great feat
-- one that takes an immense amount of effort and discipline. People who
+absolutely nothing wrong with this. Teaching one's self is a great feat - one that takes an immense amount of effort and discipline. People who
 have taught themselves tend to understand concepts better and can retain
 things longer.
 

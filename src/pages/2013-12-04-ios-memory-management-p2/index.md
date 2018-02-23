@@ -4,9 +4,7 @@ title:  "iOS Memory Management: Automatic Reference Counting"
 date:   2013-12-04
 ---
 
-In our previous
-[post](http://www.pasanpremaratne.com/2013/09/01/ios-memory-management)
-we went over the basics of memory management and the
+In our previous [post](http://www.pasanpremaratne.com/2013/09/01/ios-memory-management) we went over the basics of memory management and the
 manual-retain-release model that was used before the introduction of
 ARC. With the introduction of ARC, most of the practices under the
 manual-retain-release model were automated, handing off the task of
@@ -54,7 +52,7 @@ known as **strong reference cycles** (previously called retain cycles).
 Let's take a brief segue to talk about reference cycles and why they are
 important.
 
-![Strong reference cycle](/assets/images/reference_cycle_1.png)
+![Strong reference cycle](https://cl.ly/273m2c3D2T0r/reference_cycle_1.png)
 
 In this example, we have a ViewController, the parent, and its child, a
 TableViewController. If the relationship between the two were both
@@ -64,7 +62,7 @@ references for a weak reference. This weak reference does not imply
 ownership, since it's a non-owning relationship, and therefore doesn't
 keep the object alive.
 
-![No strong reference cycle](/assets/images/reference_cycle_2.png)
+![No strong reference cycle](https://cl.ly/40310T1d1P3p/reference_cycle_2.png)
 
 This is also how parent-delegate patterns work as well. The parent view
 has a weak relationship to its delegate:
@@ -81,9 +79,8 @@ Delegate object
 @property (strong) UITableView *tableView;
 ```
 
-![Diagram from Apple
-Docs](/assets/images/relationships.png)
-<p class="caption">Diagram from <a href="https://developer.apple.com/library/ios/documentation/cocoa/conceptual/ProgrammingWithObjectiveC/EncapsulatingData/EncapsulatingData.html">Apple Docs</a></p>
+![Diagram from Apple Docs](https://cl.ly/2S0F1G0S0l0O/relationships.png)
+
 
 This means that once the delegate object is deallocated, it releases the
 strong reference on `UITableView`.

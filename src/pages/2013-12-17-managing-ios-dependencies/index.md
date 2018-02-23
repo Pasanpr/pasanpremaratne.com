@@ -61,7 +61,7 @@ Adding Libraries to Xcode Projects
 Let's create a simple Xcode project. Everything looks the same, we have
 our basic files.
 
-![image](/assets/images/sample-project-structure.png)
+![image](https://cl.ly/1Q162t1K3m1H/sample-project-structure.png)
 
 I want to add the following libraries to the project:
 [CupertinoYankee](https://github.com/mattt/CupertinoYankee),
@@ -101,12 +101,12 @@ directly.
 If we go ahead and open up our workspace, we can see the Pods project
 that was generated, along with the libraries and relevant source files.
 
-![image](/assets/images/pods-project.png)
+![image](https://cl.ly/1w1s2n041s2K/pods-project.png)
 
 In our project directory, you will notice a new `Pods.xcconfig` file
 that specifies the relevant header search paths automatically.
 
-![image](/assets/images/header-search-paths.png)
+![image](https://cl.ly/3A2x3b1R1i1J/header-search-paths.png)
 
 So let's go ahead and use these libraries in our project. Navigate to
 the `SampleViewController.m` file and add import the following headers:
