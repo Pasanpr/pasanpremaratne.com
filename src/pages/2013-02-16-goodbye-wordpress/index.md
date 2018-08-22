@@ -1,5 +1,5 @@
 ---
-path: "/2013/02/16goodbye-wordpress"
+path: "/2013/02/16/goodbye-wordpress"
 date: "2013-02-16"
 title: "Goodbye Wordpress"
 ---
