@@ -10,7 +10,7 @@ When we run or compile a text file containing source code there are a set of ste
 
 > A scanner (or “lexer”) takes in the linear stream of characters and chunks them together into a series of something more akin to “words”. In programming languages, each of these words is called a token. Some tokens are single characters, like ( and ,. Others may be several characters long, like numbers (123), string literals ("hi!"), and identifiers (min).
 
-After scanning, the next step is parsing. Parsing takes the tokens built in the scanning step and transforms it into a tree data structure that better represents the nested nature of the language's grammer. 
+The next step is parsing. Parsing takes the tokens built in the scanning step and transforms it into a tree data structure that better represents the nested nature of the language's grammer. 
 
 After parsing there's static analyzing, generating intermediate languages and so on, none of which we'll get to in this series. I'll be doing that as I learn from the book but to solve the [problem](http://www.pasanpremaratne.com/2018/08/31/improving-code-challenges) at hand all I need is that tree structure which is commonly called an abstract syntax tree.
 
@@ -19,8 +19,8 @@ In the scanning step, which is what we'll focus on here, we're going to scan the
 We'll build this tool as a Swift library so we'll start with
 
 ```bash
-$ mkdir SwiftASTInspector
-$ cd SwiftASTInspector
+$ mkdir SwiftInspector
+$ cd SwiftInspector
 $ swift package init
 ```
 
