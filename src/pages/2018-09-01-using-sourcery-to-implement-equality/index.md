@@ -4,9 +4,7 @@ date: "2018-09-01"
 title: "Using Sourcery to Implement Equatable Conformance"
 ---
 
-One of the most cumbersome things in Swift programming is having to implement `Equatable` conformance for enums. Let's use an example from a project I'm currently working on - [building an AST parser in Swift](http://www.pasanpremaratne.com/2018/08/31/improving-treehouse-code-challenges).
-
-I use an enum to define the tokens that encompass Swift's lexical grammar. A small snippet of the type looks like this.
+One of the most cumbersome things in Swift programming is having to implement `Equatable` conformance for enums. Let's use an example from a project I'm currently working on - [building an AST parser in Swift](http://www.pasanpremaratne.com/2018/08/31/improving-treehouse-code-challenges). In the project I use an enum to define tokens that encompass Swift's lexical grammar. A small snippet of the type looks like this.
 
 ```swift
 public enum TokenType {
@@ -19,7 +17,7 @@ public enum TokenType {
 }
 ```
 
-This is only a small subset of the values the type will eventually define but implementing equality already involves tedious work.
+This is only a subset of the values the type will eventually define but implementing `Equatable` conformance already involves tedious work.
 
 ```swift
 extension TokenType: Equatable {
@@ -40,7 +38,7 @@ extension TokenType: Equatable {
 }
 ```
 
-There's nothing creative about this code snippet, it just needs to be done. There's also one minor problem with this approach. We're using a default case at the bottom to catch anything that doesn't pattern match with the cases we've specified. This reduces the power of the switch statement by removing the exhaustiveness check which means that if we add a new enum case but forget to add a pattern to go along with it our implementation of `Equatable` breaks.
+There's nothing creative about this code snippet, it just needs to be done. There's also one minor problem with this approach - we're using a default case at the bottom to catch anything that doesn't pattern match with the cases we've specified. This reduces the power of the switch statement by removing the exhaustiveness check. If we add a new enum case but forget to add a pattern to go along with it our implementation of `Equatable` breaks.
 
 To fix that we can use the placeholder pattern as detailed [here](https://oleb.net/blog/2017/03/enums-equatable-exhaustiveness/). This would mean additional cases that look like this:
 
@@ -52,9 +50,9 @@ switch (lhs, rhs) {
 }
 ```
 
-We've got the exhaustiveness checks back but haven't lost any of the tedium. Thankfully we can fix this using a really powerful metaprogramming tool, [Sourcery](https://github.com/krzysztofzablocki/Sourcery). Sourcery automates repetitive tasks by allowing you to specify [Stencil](https://github.com/stencilproject/Stencil) templates containing rules.
+In doing this we've got the exhaustiveness checks back but haven't lost any of the tedium. Thankfully we can fix this using a powerful metaprogramming tool named [Sourcery](https://github.com/krzysztofzablocki/Sourcery). Sourcery automates repetitive tasks by allowing you to specify [Stencil](https://github.com/stencilproject/Stencil) templates containing rules to generate boilerplate code.
 
-Let's walk through how we would solve this issue by automating `Equatable` conformance for this particular enum. If you already have a project you'd like to add this to go ahead and use that. I'm going to set up a test project to demonstrate this.
+Let's walk through how we would solve this issue by automating `Equatable` conformance for this particular enum. If you already have a project you'd like to test this with ahead and use that. I'm going to set up a test project to demonstrate this.
 
 ```bash
 $ mkdir SourceryDemo && cd SourceryDemo
@@ -74,13 +72,13 @@ public enum TokenType {
 }
 ```
 
-Next we're going [install](https://github.com/krzysztofzablocki/Sourcery#installation) Sourcery. There are several ways but for this tutorial I'm going to go with the easy route and use Homebrew
+Next we're going [install](https://github.com/krzysztofzablocki/Sourcery#installation) Sourcery. There are several ways you can do this but I'm going to go with the easy route and use Homebrew.
 
 ```bash
 brew install sourcery
 ```
 
-With Sourcery installed, we're going to add a new file named `AutoEquatable.swift` to `Sources/SourceryDemo`. `AutoEquatable` is going to be an empty protocol that we'll use as a marker protocol
+Next, let's add a new file named `AutoEquatable.swift` to `Sources/SourceryDemo`. `AutoEquatable` is going to be an empty protocol that we'll use as a marker type.
 
 ```swift
 protocol AutoEquatable {}
@@ -92,7 +90,7 @@ Let's also mark `TokenType` as conforming to this protocol.
 extension TokenType: AutoEquatable {}
 ```
 
-The rules we state in a bit will direct Sourcery to look for any types that conform to `AutoEquatable` in our Sources directory and generate `Equatable` conformance for them. These rules are going to be defined as Stencil templates. In the `Sources/SourceryDemo/` subdirectories add a new `Templates` directory and add a `AutoEquatable.stencil` file.
+The rules we state in a bit will direct Sourcery to look for any types that conform to `AutoEquatable` in our Sources directory and auto-generate `Equatable` conformance for them. These rules are going to be defined as Stencil templates. In the `Sources/SourceryDemo/` subdirectories add a new `Templates` directory and add a `AutoEquatable.stencil` file.
 
 If you've used a templating language with a web framework this should be intuitive to you. At the top of the file let's add a comment marker
 
@@ -106,7 +104,7 @@ Next we're going to define a Stencil for tag to iterate over all enums in the so
 {% for type in types.enums where type.implements.AutoEquatable %}
 ```
 
-At the bottom we'll close this tag off 
+At the bottom we'll close this tag off. 
 
 ```
 {% endfor %}
