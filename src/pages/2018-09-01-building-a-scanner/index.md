@@ -308,6 +308,6 @@ public enum TokenType {
 
 I'll leave it up to you to implement the logic for these tokens. As an aside you might be wondering why I've excluded characters like `=` or `+` above. While those are technically single character lexemes, the existence of lexemes like `==` and `+=` means we need to add some additional logic to the lexer to be able to handle it. All in due time.
 
-In addition, you'll notice that to be able to run tests on the new token types we'll need to extend `Equatable` conformance to cover all the new cases. This is going to get really tedious as the type grows. I highly recommend using [Sourcery](https://github.com/krzysztofzablocki/Sourcery) to automate this and if you're interested you can read my follow up [post]().
+In addition, you'll notice that to be able to run tests on the new token types we'll need to extend `Equatable` conformance to cover all the new cases. This is going to get really tedious as the type grows. I highly recommend using [Sourcery](https://github.com/krzysztofzablocki/Sourcery) to automate this and if you're interested you can read my follow up [post](http://pasanpremaratne.com/2018/09/01/using-sourcery-to-implement-equality).
 
 In the next post in this series, let's tackle lexemes that longer than a single character.
