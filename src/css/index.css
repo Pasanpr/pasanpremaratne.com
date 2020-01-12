@@ -13,10 +13,6 @@
   border-bottom-width: 0;
 }
 
-.blog-post-preview .title, .blog-post-preview .date, .blog-post-preview .link {
-  /*margin: 0 auto;*/
-}
-
 .blog-post-preview .post-title-link {
   color: #20242C;
 }
@@ -46,7 +42,6 @@
   list-style: none;
   display: flex;
   align-items: center;
-  margin:;
 }
 
 .pagination .pagination-nav li:first-child {

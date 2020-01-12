@@ -1,9 +1,7 @@
 import React from 'react';
 import GatsbyLink from 'gatsby-link';
-import Helmet from 'react-helmet';
-import Link from '../components/Link';
-
 import '../css/index.css';
+import indexStyles from "../components/index.module.css"
 
 const PostBlurb = props => {
   const post = props.post;

@@ -1,13 +1,17 @@
+'use strict';
+
 const { name } = require('./package.json');
+const siteConfig = require('./config.js');
 
 module.exports = {
-  pathPrefix: process.env.CI ? `/${name}` : `/`,
+  pathPrefix: siteConfig.pathPrefix,
   siteMetadata: {
-    author: 'Pasan Premaratne',
-    title: `Pasan Premaratne`,
+    url: siteConfig.url,
+    author: siteConfig.author.name,
+    title: siteConfig.title,
+    copyright: siteConfig.copyright,
   },
   plugins: [
-    'gatsby-plugin-react-next',
     'gatsby-plugin-catch-links',
     {
       resolve: 'gatsby-source-filesystem',
@@ -41,10 +45,13 @@ module.exports = {
               classPrefix: "language-",
           },
         },
+        'gatsby-remark-smartypants',
+        'gatsby-remark-external-links',
+        'gatsby-remark-autolink-headers',
         ]
       }
     },
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sharp'
+    'gatsby-plugin-sharp',
   ],
 }
