@@ -1,7 +1,6 @@
 import React from 'react';
 import GatsbyLink from 'gatsby-link';
 import '../css/index.css';
-import indexStyles from "../components/index.module.css"
 
 const PostBlurb = props => {
   const post = props.post;
