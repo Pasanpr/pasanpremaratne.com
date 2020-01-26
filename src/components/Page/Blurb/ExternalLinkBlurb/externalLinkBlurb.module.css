@@ -1,0 +1,32 @@
+.blogPostPreview {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0.25rem;
+  margin-bottom: 4rem;
+  color: #20242C;
+}
+
+.blogPostPreview:last-child {
+  border-bottom-width: 0;
+}
+
+.blogTitle {
+  font-family: ff-ernestine-pro, serif;
+}
+
+.postTitleLink {
+  color: #20242C;
+  text-decoration: none;
+}
+
+.postTitleLink:hover{
+  border-bottom: 1px solid #20242C;
+}
+
+.date {
+  color: #9B9B9B;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  font-weight: 300;
+  font-family: museo-sans, sans-serif;
+}

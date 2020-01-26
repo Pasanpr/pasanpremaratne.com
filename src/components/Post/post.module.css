@@ -1,45 +1,50 @@
-.blog-post {
+.blogPost {
 	padding-top: 3rem;
 }
 
-.blog-post .blog-title {
+.blogTitle {
 	margin-bottom: 3rem;
 }
 
-.blog-post .title, {
-  margin: 0;
+.title {
+  margin: 0 0 0.5rem;
   padding: 0;
   color: #20242C;
+  font-family: ff-ernestine-pro, serif;
 }
 
-.blog-post .date {
+.date {
   color: #9B9B9B;
   margin-bottom: 1.5rem;
   font-size: 1.25rem;
   font-weight: 300;
+  font-family: museo-sans, sans-serif;
 }
 
-.blog-post .blog-post-content {
+.blogPostContent {
   font-weight: 300;
+  font-family: museo-sans, sans-serif;
+  line-height: 1.75rem;
+  margin-bottom: 2em;
 }
 
-.blog-post .navigation {
+.blogPost .navigation {
   min-height: 60px;
 }
 
-.blog-post-content h2,h3,h4,h5,h6 {
+.blogPostContent h2,h3,h4,h5,h6 {
   font-family: "ff-ernestine-pro", "serif" !important; 
   font-weight: 600;
   margin: 2rem 0 1rem 0;
   text-decoration: underline;
 }
 
-.blog-post-content img {
+.blogPostContent img {
   display: flex;
   margin: 0 auto;
 }
 
-.blog-post blockquote {
+.blogPost blockquote {
   border-left-style: solid;
   border-left-width: 3px;
   border-left-color: #CA69DA ;

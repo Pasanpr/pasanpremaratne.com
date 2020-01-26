@@ -1,33 +1,17 @@
 import React from 'react';
-import Typekit from 'react-typekit';
-import Helmet from 'react-helmet';
-import '../css/blog-post.css';
+import { graphql } from 'gatsby';
+import Layout from '../components/Layout/Layout';
+import Post from '../components/Post/Post';
+import Footer from '../components/Footer/Footer';
 
-export default function Template({ data, pathContext }) {
-  const { markdownRemark: post } = data;
-  const { next, prev } = pathContext;
+const BlogPost = ({data}) => {
   return (
-    <div className="blog-post-container">
-      <Helmet title={`${post.frontmatter.title}`} />
-      <div className="blog-post">
-        <div className="blog-title">
-          <h1 className="title" style={{ fontFamily: `ff-ernestine-pro, serif`, color: `#20242C` }}>
-            {post.frontmatter.title}
-          </h1>
-          <h2 className="date" style={{ fontFamily: `museo-sans, sans-serif` }}>
-            {post.frontmatter.date}
-          </h2>
-        </div>
-        <div
-          className="blog-post-content"
-          dangerouslySetInnerHTML={{ __html: post.html }}
-          style={{ fontFamily: `museo-sans, sans-serif`, lineHeight: `1.75rem` }}
-        />
-      </div>
-      <Typekit kitId="kvv8cdm" />
-    </div>
-  );
-}
+    <Layout>
+      <Post>{data.markdownRemark}</Post>
+      <Footer />
+    </Layout>
+  )
+};
 
 export const pageQuery = graphql`
   query BlogPostByPath($path: String!) {
@@ -42,3 +26,5 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+export default BlogPost;

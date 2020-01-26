@@ -1,22 +1,22 @@
-'use strict';
-
-const { name } = require('./package.json');
 const siteConfig = require('./config.js');
 
 module.exports = {
   pathPrefix: siteConfig.pathPrefix,
   siteMetadata: {
     url: siteConfig.url,
-    author: siteConfig.author.name,
     title: siteConfig.title,
+    subtitle: siteConfig.subtitle,
+    meta: siteConfig.meta,
     copyright: siteConfig.copyright,
+    menu: siteConfig.menu,
+    author: siteConfig.author
   },
   plugins: [
     'gatsby-plugin-catch-links',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/src/pages`,
+        path: `${__dirname}/content`,
         name: 'pages',
       },
     },
