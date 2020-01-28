@@ -19,7 +19,10 @@ const Index = ({ data }) => {
 
 export const pageQuery = graphql`
   query IndexQuery {
-    allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}) {
+    allMarkdownRemark(
+      filter: { frontmatter: { draft: { ne: true } } }
+      sort: {fields: [frontmatter___date], order: DESC}
+      ) {
       nodes {
         id
         excerpt(pruneLength: 250)

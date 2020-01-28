@@ -12,7 +12,9 @@ const createPages = async ({ graphql, actions }) => {
   // Posts from markdown
   const result = await graphql(`
     query {
-      allMarkdownRemark {
+      allMarkdownRemark(
+        filter: { frontmatter: { draft: { ne: true } } }
+      ) {
         edges {
           node {
             fields {
