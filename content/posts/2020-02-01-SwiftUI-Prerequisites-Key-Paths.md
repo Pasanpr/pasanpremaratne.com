@@ -1,5 +1,5 @@
 ---
-path: "/2020/02/10/swiftui-prerequisites"
+path: "/2020/02/10/swiftui-prerequisites-key-paths"
 date: "2020-02-10"
 title: "SwiftUI Prerequisites: Key Paths"
 ---
@@ -10,6 +10,8 @@ I'm finally jumping on the SwiftUI train, albeit tentatively, but before I get s
 - Property wrappers
 - Function builders
 - Opaque types
+
+Let's start with key paths.
 
 ## Key Paths
 
@@ -28,13 +30,13 @@ class Person: NSObject {
 }
 ```
 
-Having to inherit from an Objective-C class meant that you were immediately limited. You could not observe values on any value types such as structs and enums nor could you use generic classes. Using this class you could now observe values, albeit with API that was not very Swift like.
+Having to inherit from an Objective-C class meant that you were immediately limited. You could not observe values on any value types such as structs and enums nor could you use generic classes. Using an `NSObject` instance you could now observe values, albeit with API that was not very Swift like.
 
 ```swift
 person.addObserver(self, forKeyPath: "name", options: NSKeyValueObservingOptions.New, context: &kvoContext)
 ```
 
-What stands out immediately is that the key path argument takes a String literal. Since any value could be passed in, this violated the type safety contract that Swift sought enforce. Literally everyone complained about this. Not only did it not feel like bad Swift, but all the features of Objective-C KVO weren't supported.
+What stands out immediately is that the key path argument takes a String literal. Since any value could be passed in, this violated the type safety contract that Swift sought enforce. Literally everyone complained about this. Not only did it not feel like bad Swift, but all the features of Objective-C KVO weren't even supported.
 
 Swift 3 sought to improve on this this by introducing the `#keyPath` syntax. A key path expression was created by passing in a sequence of object properties. 
 
@@ -46,7 +48,7 @@ let personNameKeyPath = #keyPath(Person.name)
 This improved the API in some ways - creating a key path expression meant that the compiler could verify that the property existed, but several disadvantages still remained. 
 Key path expressions still relied on the Objective-C runtime which meant the object being observed needed to be an Objective-C class, or individual properties had to be exposed to the runtime. 
 
-Despite the compile time check the key path was ultimately resolved to a string, which meant a loss of type information. Key path API always returned a value of type `Any`
+Despite the compile time check the key path was also ultimately resolved to a string, which meant a loss of type information. Key path APIs always returned a value of type `Any`
 
 ```swift
 let username = user.value(forKeyPath: personNameKeyPath) // Any
@@ -72,6 +74,8 @@ Smart key paths were introduced in [SE-0161](https://github.com/apple/swift-evol
 - Importantly, they should work on all platforms so that Swift could continue its plans for global domination
 
 ### Syntax
+
+Let's work with the following example
 
 ```swift
 struct Person {
@@ -141,7 +145,7 @@ var person = Person(name: "Jane Appleseed", age: 42, address: address, friends: 
 let name = person[keyPath: nameKeyPath] // "Jane Appleseed"
 ```
 
-You'll notice that we're using a `keyPath` label inside the subscript; this is to make it distinct from regular subscripting. Key path subscript syntax can also be used to set values.
+You'll notice that I'm using a `keyPath` label inside the subscript; this is to make it distinct from regular subscripting. Key path subscript syntax can also be used to set values.
 
 ```swift
 let ageKeyPath = \Person.age
