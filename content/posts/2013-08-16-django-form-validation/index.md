@@ -2,6 +2,7 @@
 title:  "Django Form Validation"
 date:   2013-08-16
 path: "/2013/08/16/django-form-validation/"
+description: ""
 ---
 
 On the current project I'm working on, users can create a subject and

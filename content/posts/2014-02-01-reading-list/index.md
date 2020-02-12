@@ -2,6 +2,7 @@
 path: "/2014/02/01/reading-list/"
 title: "Reading List"
 date: 2014-02-01
+description: ""
 ---
 
 I consider reading an essential part of my learning process. While I

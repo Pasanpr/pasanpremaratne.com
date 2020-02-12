@@ -6,7 +6,12 @@ const Post = (markdownRemark) => {
   const { frontmatter, html } = markdownRemark.children;
   return(
     <div>
-      <Helmet title={frontmatter.title} />
+      <Helmet>
+        <title>{frontmatter.title}</title>
+        <meta name="description" content={frontmatter.description} />
+        <meta name="twitter:title" content={frontmatter.title} />
+        <meta name="twitter:description" content={frontmatter.description} />
+      </Helmet>
       <div className={styles.blogPost}>
         <div className={styles.blogTitle}>
           <h1 className={styles.title}>

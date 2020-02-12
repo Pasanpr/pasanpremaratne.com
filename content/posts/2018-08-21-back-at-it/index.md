@@ -2,6 +2,7 @@
 path: "/2018/08/21/back-at-it"
 date: "2018-08-21"
 title: "Back at It"
+description: ""
 ---
 
 It's been almost 4 years. Clearly I'm terrible at this. The last time I published a post I didn't have any kids!

@@ -2,6 +2,7 @@
 path: "/2014/05/22/behaviors-and-breakpoints"
 date: 2014-05-25
 title: "Behaviors and Breakpoints"
+description: ""
 ---
 
 In addition to [learning about Xcode](http://www.pasanpremaratne.com/2014/05/16/becoming-an-xcode-power-user/), another takeaway from CocoaConf was how to use behaviors and breakpoints to improve my workflow.

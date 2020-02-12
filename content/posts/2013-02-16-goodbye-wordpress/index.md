@@ -2,6 +2,7 @@
 path: "/2013/02/16/goodbye-wordpress"
 date: "2013-02-16"
 title: "Goodbye Wordpress"
+description: "Leaving Wordpress behind"
 ---
 
 

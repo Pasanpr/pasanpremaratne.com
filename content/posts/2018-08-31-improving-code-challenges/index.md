@@ -2,6 +2,7 @@
 path: "/2018/08/31/improving-treehouse-code-challenges"
 date: "2018-08-31"
 title: "Improving Swift Code Challenges at Treehouse"
+description: ""
 ---
 
 At Treehouse we test student's code in the browser using a custom solution we call (as does everyone else) code challenges. The implementation details vary slightly depending on the language being tested but from the start testing Swift code has been somewhat painful.

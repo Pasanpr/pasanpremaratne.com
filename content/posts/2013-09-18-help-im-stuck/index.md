@@ -2,6 +2,7 @@
 path: "/2013/09/18/help-im-stuck"
 title:  "Help, I'm Stuck"
 date:   2013-09-18
+description: "Figuring your way out of a coding problem"
 ---
 
 As a novice to programming, one of the most common places I find myself

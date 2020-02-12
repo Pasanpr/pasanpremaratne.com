@@ -2,6 +2,7 @@
 path: "/2020/02/10/swiftui-prerequisites-key-paths"
 date: "2020-02-10"
 title: "SwiftUI Prerequisites: Key Paths"
+description: "Understanding the basics of smart key paths in Swift"
 ---
 
 I'm finally jumping on the SwiftUI train, albeit tentatively, but before I get started actually working with the framework there's a lot I need to catch up on - some basic prerequisites if you will.  In this series (if I actually get around to finishing it) I want to cover four key pieces of Swift that play a huge role in making SwiftUI feel like magic

@@ -3,6 +3,7 @@ path: "/2014/03/15/ui-prototyping-with-quartz-composer-and-origami"
 title:  "UI Prototyping with Quartz Composer and Origami"
 date: 2014-03-15
 tags: ['ui']
+description: ""
 ---
 
 When working on my first app, I didn't have any idea on what a proper workflow was.  I designed the entire app using [Sketch](http://www.bohemiancoding.com/sketch/), but since a significant part of the interface was made up of animations triggered by touch events, I didn't have any way to visualize and time the effects during the initial phase. Instead, I created the interface programatically and tested each animation, tweaking them constantly  until I was happy with the end result. It was definitely the hard way to do it and it took over a month (working only on weekends) to figure out what gestures and effects I was happy with.

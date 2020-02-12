@@ -2,6 +2,7 @@
 path: "/2013/04/30/why-business-types-should-learn-to-code"
 title:  "Why Business Types Should Learn to Code"
 date: 2013-04-30
+description: ""
 ---
 
 Being able to code is pretty cool. It really does feel like a

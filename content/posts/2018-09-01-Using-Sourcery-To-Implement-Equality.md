@@ -2,6 +2,7 @@
 path: "/2018/09/01/using-sourcery-to-implement-equality"
 date: "2018-09-01"
 title: "Using Sourcery to Implement Equatable Conformance"
+description: ""
 ---
 
 One of the most cumbersome things in Swift programming is having to implement `Equatable` conformance for enums. Let's use an example from a project I'm currently working on - [building an AST parser in Swift](http://www.pasanpremaratne.com/2018/08/31/improving-treehouse-code-challenges). In the project I use an enum to define tokens that encompass Swift's lexical grammar. A small snippet of the type looks like this.
