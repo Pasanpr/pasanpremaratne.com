@@ -1,6 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import styles from './post.module.css';
+import * as styles from './post.module.css';
 
 const Post = (markdownRemark) => {
   const { frontmatter, html } = markdownRemark.children;

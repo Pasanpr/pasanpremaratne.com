@@ -3,6 +3,7 @@ path: "/2013/04/15/teachers"
 date: "2013-04-15"
 title:  "The Importance of Good Teachers"
 description: ""
+draft: false
 ---
 
 Teaching yourself seems to be in vogue as of late - partly due to the

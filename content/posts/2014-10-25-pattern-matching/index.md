@@ -4,6 +4,7 @@ date: "2014-10-25"
 title: "Pattern Matching in Swift"
 tags: ['swift']
 description: ""
+draft: false
 ---
 
 When playing around with Swift, something I'm trying hard to avoid is just

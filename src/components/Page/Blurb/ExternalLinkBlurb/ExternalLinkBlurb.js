@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './externalLinkBlurb.module.css'
+import * as styles from './externalLinkBlurb.module.css'
 
 const ExternalLinkBlurb = (props) => {
   const post = props.post;

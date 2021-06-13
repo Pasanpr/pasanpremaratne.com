@@ -3,6 +3,7 @@ path: "/2018/08/31/building-ast-parser-part-1"
 date: "2018-09-01"
 title: "Building an AST Parser Pt 1: Scanning"
 description: ""
+draft: false
 ---
 
 Before we get into the nitty gritty of writing the actual parser, let's get a lay of the land. Rob Nystrom does a great job with this and if you want the details you should check out [A Map of the Territory](https://www.craftinginterpreters.com/a-map-of-the-territory.html) chapter. I'll give you quick tour.

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './postBlurb.module.css'
+import * as styles from './postBlurb.module.css'
 import GatsbyLink from 'gatsby-link';
 
 const PostBlurb = props => {

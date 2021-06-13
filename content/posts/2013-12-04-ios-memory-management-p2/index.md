@@ -2,6 +2,7 @@
 path: "/2013/12/04/ios-memory-management-p2"
 title:  "iOS Memory Management: Automatic Reference Counting"
 date:   2013-12-04
+draft: false
 ---
 
 In our previous [post](http://www.pasanpremaratne.com/2013/09/01/ios-memory-management) we went over the basics of memory management and the

@@ -3,7 +3,7 @@ import Helmet from 'react-helmet';
 import useSiteMetadata from '../../hooks/use-site-metadata';
 import Typekit from 'react-typekit';
 import Header from '../Header/Header';
-import styles from './layout.module.css';
+import * as styles from './layout.module.css';
 
 const Layout = (props) => {
   const { title, meta } = useSiteMetadata();

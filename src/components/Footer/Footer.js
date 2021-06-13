@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './footer.module.css';
+import * as styles from './footer.module.css';
 import { FaGithub, FaTwitter } from 'react-icons/fa';
 import IconListItem from './IconListItem/IconListItem';
 

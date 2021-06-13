@@ -3,6 +3,7 @@ path: "/2013/09/01/ios-memory-management"
 title:  "iOS Memory Management: The Manual-Retain-Release Model"
 date: 2013-09-01
 description: ""
+draft: false
 ---
 
 **Edit:** This post was rewritten to be a bit more clear and was

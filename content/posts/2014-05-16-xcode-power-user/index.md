@@ -3,6 +3,7 @@ path: "/2014/05/16/becoming-an-xcode-power-user"
 title:  "Becoming an Xcode Power User"
 date: 2014-05-16
 description: ""
+draft: false
 ---
 
 Until recently, I had notoriously bad typing habits and preferred using the mouse for most things. I decided to retrain myself lest I be shamed by developers worldwide and get better at using my tools sans mouse. Retraining went well but I still found Xcode's keyboard shortcuts somewhat confusing until I attended a very timely talk at CocoaConf San Jose. [It's All In The Tools](https://speakerdeck.com/neror/its-all-in-the-tools) by [@neror](https://twitter.com/neror) broke down Xcode's different panels very logically to make a lot more sense of the shortcuts and key bindings.

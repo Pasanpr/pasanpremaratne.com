@@ -1,6 +1,6 @@
 import React from 'react';
 import Blurb from './Blurb/Blurb';
-import styles from './page.module.css'
+import * as styles from './page.module.css'
 
 const Page = (props) => {
   const { children: posts } = props;

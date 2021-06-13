@@ -3,6 +3,7 @@ path: "/2013/12/17/managing-ios-dependencies"
 title:  "Managing Dependencies in Objective-C Projects"
 date:   2013-12-17
 description: ""
+draft: false
 ---
 
 When working with Objective-C projects in Xcode, you will occasionally

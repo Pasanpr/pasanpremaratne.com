@@ -3,6 +3,7 @@ path: "/2013/12/26/setting-up-my-static-blog"
 title:  "Setting Up My Static Blog"
 date: 2013-12-26
 description: ""
+draft: false
 ---
 
 Roughly about a year ago I moved my blog from Wordpress over to a
