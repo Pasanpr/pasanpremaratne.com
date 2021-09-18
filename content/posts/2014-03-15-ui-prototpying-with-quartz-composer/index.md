@@ -11,7 +11,7 @@ When working on my first app, I didn't have any idea on what a proper workflow w
 
 I had come across a blog post or two that suggested using Quartz Composer (henceforth mentioned as 'QC') but since the documentation and literature surrounding it was sparse, I found it hard to get in to and eventually refrained from using it. Additionally, QC hasn't received much love from Apple (the last updates were circa 2007) and I didn't want to spend any time learning software that seemed on its way out. 
 
-Soon after that however, [Julie Zhuo](https://medium.com/@joulee), a designer at Facebook, wrote about how QC was crucial to their workflow when working on [Facebook Home](https://play.google.com/store/apps/details?id=com.facebook.home). Zhuo agreed that Quartz Composer had a bit of a learning curve and was fairl cumbersome so her team had taken some steps to make it easier to use. The culmination of this effort was [Origami](http://facebook.github.io/origami/), which they recently released to the public.  Origami is simply a toolkit for Quartz Composer that makes interactive design prototyping easier.
+Soon after that however, [Julie Zhuo](https://medium.com/@joulee), a designer at Facebook, wrote about how QC was crucial to their workflow when working on [Facebook Home](https://play.google.com/store/apps/details?id=com.facebook.home). Zhuo agreed that Quartz Composer had a bit of a learning curve and was fairly cumbersome so her team had taken some steps to make it easier to use. The culmination of this effort was [Origami](http://facebook.github.io/origami/), which they recently released to the public.  Origami is simply a toolkit for Quartz Composer that makes interactive design prototyping easier.
 
 Since QC apparently has enough functionality to suit the needs of a much more complex app than mine, I decided to give it a try. I've attempted to put together what I've learned during the process into this blog post to help give others a good starting point with QC and Origami. Once you get the hang out it, QC is not at all complicated to work with. There are definitely a few disadvantages, but before we get into all of that, let's start at the top.
 
@@ -61,7 +61,7 @@ With its default patches, we would have to do all sorts of crazy stuff just to g
 
  Next we need to set the dimensions of our iPhone screen. This ensures that any artwork that we export will fit perfectly in the viewer. Search for and drag in first the **Phone Dimensions** patch, followed by the **Render in Image** patch.  The Phone Dimensions patch is an Origami patch that outputs the pixel width and height of the phone that we're designing for. The default is set to iPhone but you can change that. Select the patch and click on *Patch Inspector* in the toolbar. This is how you access the parameters of a patch. The Phone Dimensions patch has only one parameter - the type of phone you will be using. Leave iPhone selected.
 
- The Render in Patch on the other hand is a patch that renders all of its subpatches into an image. We need to specify that the image rendered matches the phone dimensions and that it outputs this image to the iPhone in our viewer. To do this click and drag from the *Pixels Wide* output port of the Phone Dimensions patch to the *Pixels Wide* input port of the Render in Image patch. It should look like this:
+ The Render in Patch on the other hand is a patch that renders all of its sub-patches into an image. We need to specify that the image rendered matches the phone dimensions and that it outputs this image to the iPhone in our viewer. To do this click and drag from the *Pixels Wide* output port of the Phone Dimensions patch to the *Pixels Wide* input port of the Render in Image patch. It should look like this:
 
 ![image](https://cl.ly/3B1923040I09/PixelsWide.png)
 
@@ -71,9 +71,9 @@ With its default patches, we would have to do all sorts of crazy stuff just to g
 
 ##Creating Our Rendered Image
 
-Let's start adding our designs to QC so that we can start protoyping. Origami makes this easy by letting you drag in an image into your composition window. Start by double clicking on the Render in Image patch to create your subpatches. 
+Let's start adding our designs to QC so that we can start prototyping. Origami makes this easy by letting you drag in an image into your composition window. Start by double clicking on the Render in Image patch to create your sub-patches. 
 
-Once you have the necessary assets, drag in the *BaseScreen.png* file. If you have your Viewer up, you will immediately notice that the phone screen goes all crazy. Don't be alarmed this is expected behavior. If you remember, in our parent composition, we had a Clear patch as our starting point. This patch basically helps us reset the composition so that everytime a new patch is added, Clear is run first, the composition is reset and re-rendered. Delete all patches that are in the composition, drag the Clear patch in, and bring in the same BaseScreen.png image as before. Voila!
+Once you have the necessary assets, drag in the *BaseScreen.png* file. If you have your Viewer up, you will immediately notice that the phone screen goes all crazy. Don't be alarmed this is expected behavior. If you remember, in our parent composition, we had a Clear patch as our starting point. This patch basically helps us reset the composition so that every time a new patch is added, Clear is run first, the composition is reset and re-rendered. Delete all patches that are in the composition, drag the Clear patch in, and bring in the same BaseScreen.png image as before. Voila!
 
 Dragging the image in creates an Image patch and an associated layer. This layer patch has many input ports that control all sorts of properties. Don't be confused - as we walk through the rest of the tutorial, you will gain a better understanding of what these properties do as we use them. Go ahead and add the rest of the assets into our composition.
 
@@ -143,7 +143,7 @@ Let's add a couple more steps:
 - Drag in another Bouncy Animation patch and rename it Bouncy Animation C. Connect from **Interaction 2 - Drag** to **Bouncy Animation C - Number**. Set Friction to 7 and Tension to 200.
 - Drag in two Transition patches and label them Transition X and Transition Y. Place them beside the C button Image patch. On the Transition X patch, set the Start Value to 0 and the End Value to 184.5. On the Transition Y patch, set the Start Value to -512 and the End Value to -408.5. Connect from **Bouncy Animation C - Progress** to **Transition X - Progress** as well as **Transition Y - Progress**. Finally connect from **Transition X - Value** to **C Layer - X Position** and **Transition Y - Value** to **C Layer - Y Position**.
 
-Click and hold to see the magic! We could leave it at this, but we only need to make a few more tweaks to make it more Path-like. If you look back at the Path radial menu gif above, you'll notice that after tapping the Add buton, the menu options spin while transitioning and that they don't all fan out together. There is a slight delay between each subsequent menu option transitioning to its end position. It will only take a few more patches to make this happen.
+Click and hold to see the magic! We could leave it at this, but we only need to make a few more tweaks to make it more Path-like. If you look back at the Path radial menu gif above, you'll notice that after tapping the Add button, the menu options spin while transitioning and that they don't all fan out together. There is a slight delay between each subsequent menu option transitioning to its end position. It will only take a few more patches to make this happen.
 
 ###Spinning
 
@@ -175,7 +175,7 @@ There you have it - our first QC Composition! Using QC, I was able to quickly (~
 
 Hopefully this tutorial should give you a quick intro into the different kinds of things you can do with Quartz Composer. There is a bit of a learning curve but I don't think it's overly complicated and it's mostly understanding what patches you need to include to get the desired functionality.
 
-The only downside that I see right now to using Quartz Composer is that if you're protoyping something complex, your composition can get unweildy and convoluted fairly quickly. In just creating a radial menu with three buttons we have over 20 patches in our composition. This can be mitigated to some effect by rearranging and using QC's notes feature. I've grouped all the patches related to button A and placed a note underneath it to indicate what that grouping achieves. Notes can be created by right clicking anywhere in the composition window.
+The only downside that I see right now to using Quartz Composer is that if you're prototyping something complex, your composition can get unwieldy and convoluted fairly quickly. In just creating a radial menu with three buttons we have over 20 patches in our composition. This can be mitigated to some effect by rearranging and using QC's notes feature. I've grouped all the patches related to button A and placed a note underneath it to indicate what that grouping achieves. Notes can be created by right clicking anywhere in the composition window.
 
 ![image](https://cl.ly/3j2s2Y1f0i3C/ButtonAOrganization.png)
 

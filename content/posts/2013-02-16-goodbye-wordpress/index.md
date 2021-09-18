@@ -30,6 +30,6 @@ I guess my next step would be to write a script to get all the building
 and pushing to the server out of the way. Baby steps. I'll get there
 eventually.
 
-**Sidenote**: I don't know yet how to bring in all the posts from my old
+**Side-note**: I don't know yet how to bring in all the posts from my old
 WP blog with their Disqus comments. At some point I'll try and archive
 all that.

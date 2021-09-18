@@ -3,6 +3,7 @@ path: "/2019/06/24/new-chapter"
 date: "2019-06-24"
 title: "A New Chapter"
 description: ""
+draft: false
 ---
 
 Earlier this month, June 3rd to be exact, I was laid off from Treehouse. I saw it coming, had time to prepare myself mentally and get a jump start on job hunting but it still felt extremely strange to actually hear the news. 
